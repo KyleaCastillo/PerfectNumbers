@@ -1,0 +1,38 @@
+Hard coded attempt to find a perfect number by checking every value and taking the sum of its factors.
+It resulted in overly long runtime that simply took O(n).
+//
+//
+//        int i = 1;                              //1 will always divide the number evenly with no remainder
+//        if (num < 3){
+//            return false;
+//        }
+//        for (int j = 2; j < num / 2; j++) {     //Once you reach half of the number you no longer need to check.
+//            if (num % j == 0) i += j;
+//        }
+//        i += num / 2;                           //Add half the number since it wasn't included previously.
+//        if (i == num) return true;
+//        return false;
+
+A second attempt to create an algorithm to find perfect numbers.
+This variation worked remarkably well except it would allow numbers that were not perfect
+to be based through.
+//     * The method has three components:
+//     * 1. The number being checked.
+//     * 2. An array of values to be taken as a sum later.
+//     * 3. A iteration counter.
+//     * The algorithm cuts the number in half and continues to cut it in half
+//     * until there are not numbers that can be divided by two with no remainder.
+//     */
+//    private static boolean isPerfectHelper(int num, int itr, ArrayList<Integer> sum ){
+//        if((int)Math.pow((double) 2, (double) itr) >= num/2){
+//        int tempSum = 0;
+//        for (int fac : sum) {
+//            tempSum += fac;
+//            if(!sum.contains(num / fac) && num / fac != num) tempSum += num / fac;
+//        }
+//        return tempSum == num;
+//    }
+//    int currentPow = (int) Math.pow((double) 2, (double) itr);
+//        if(num % currentPow == 0) sum.add(currentPow);
+//        return isPerfectHelper(num,itr + 1, sum);
+//}
